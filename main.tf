@@ -45,6 +45,8 @@ resource aws_secretsmanager_secret secret {
   name       = join("", [local.key_prefix, each.value])
   kms_key_id = aws_kms_key.key.key_id
 
+  recovery_window_in_days = var.recovery_window
+
   tags = local.tags
 }
 

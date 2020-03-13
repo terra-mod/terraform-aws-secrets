@@ -45,6 +45,15 @@ EOF
   default     = {}
 }
 
+variable recovery_window {
+  description = <<EOF
+Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be 0 to force deletion without recovery or range from 7 to 30 days.
+This module defaults to 0 to force deletion, but that can be changed here.
+EOF
+  type        = number
+  default     = 0
+}
+
 variable tags {
   description = "Any additional tags that should be added to taggable resources created by this module."
   type        = map(string)
